@@ -12,8 +12,12 @@
 - [Documentation](#documentation)
     - [Objet](#objet)
         - [Parcours](#parcours)
-            - [Fonctions de l'objet parcours](#fonctions-de-lobjet-parcours)
     - [Fonctions Principales](#fonctions-principales)
+        - [Main](#main)
+        - [Data](#data)
+        - [Repr](#repr)
+        - [Pause](#pause)
+        - [Tous](#tous)
 
 # Sujet
 
@@ -82,25 +86,26 @@ https://www.bonnesroutes.com/widget/v1/html
 
 # Documentation
 
-### Objet
+## Objet
 
 Le fichier `algo_objet.py` est le seul fichier à contenir un objet.
 
-###### Parcours
+### Parcours
 
 L'objet **Parcours** est instancié avec aucun paramètre et pourtant, lorsqu'il est initialisé il demande une action de notre part.
 
 Dans sont constructeur, il demande d'entrer des *adresses et/ou villes* autant de fois que vous le souhaitez tant que vous n'entrez pas ***stop***.
 
-###### Fonctions de l'objet parcours
 
 - [main](#main)
 - [data](#data)
 - [__repr__](#repr)
 
-###### main
+## Les fonctions
 
-- **Main** est une fonction qui prend un seule paramètre qui doit etre un tableau contenant uniquement des chaînes de caractères.
+### main
+
+**Main** est une fonction qui prend un seule paramètre qui doit etre un tableau contenant uniquement des chaînes de caractères.
 
 - Si le parametre de main est un tableau comprenant 2 chaine de caractere la fonction retourne un tableau qui comprend *(dans cette ordre)*: 
     - La ville de départ
@@ -108,12 +113,49 @@ Dans sont constructeur, il demande d'entrer des *adresses et/ou villes* autant d
     - Le nombre de km parcourue
     - Le temps pour réaliser l'itinéraire
 
-- Si le parametre de main est un tableau comprenant plus de 2 chaine de caractere la fonction retourne un tableau qui comprend *(dans cette ordre)*: 
-    
+- Si le parametre de main est un tableau comprenant plus de 2 chaine de caractere la fonction retourne un tableau de de tableau qui comprend *(dans cette ordre)*: 
+    - des tableau qui sont la resultat de main avec seulement deux parametre.
+    - KM total
+    - Le nombre de km parcourue total
+    - Le temps pour réaliser l'itinéraire total
 
-###### data
+### data
 
-###### __ repr __
+**Data** est une fonction qui prend un seule parametre un tableau contenant uniquement des chaînes de caractères. ( deux villes )
 
-### Fonctions Principales
+Elle va envoyer la rechercher des deux ville au site `https://www.bonnesroutes.com/widget/v1/html` et renvoie sous forme de tableau:
+    - les Kms
+    - Le temps en **h** 
+    - Le temps en **m**
 
+### Repr
+
+C'est une fonction qui renvoie une chaine de caractere decrivant l'objet.
+Elle est utilisée lors d'un ***print()*** de l'objet 
+
+Exemple :
+
+```
+print(object)
+```
+
+### Pause
+
+Elle prend en parametre des heures et des minutes et calcule si les minutes depasse 60, si oui, on rajoute une heure au heures.
+
+Elle retourne une chaine de caractere contenant l'heure apres traitement et les minutes apres traitement.
+
+### Tous
+
+Tous est une fonction qui prend un parametre qui dois etre un tableau
+et retourne un tableau
+
+elle manipule le tableau pour ajouter tout sont contenue dans un second tableau et calcule tout les kilometres de chaque distance et le temps que cela met
+
+### Demande
+
+**Demande** ne prend pas de parametres.
+
+Elle demande a l'utilisateur de rentrer des villes jusqu'a temps quelle y rentre **stop**.
+
+Elle retourne un tableau de toutes les villes qu'il a rentré.
